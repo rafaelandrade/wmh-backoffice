@@ -1,5 +1,10 @@
 version = 1
 
+test_patterns = [
+    "__tests__/*.test.ts",
+    "__tests__/**"
+]
+
 [[analyzers]]
 name = "javascript"
 enabled = true
