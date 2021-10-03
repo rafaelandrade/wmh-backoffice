@@ -23,9 +23,10 @@ jobs:
       - name: Run the tests
         run: yarn test:coverage
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN_BACKOFFICE }}
-          file: ./coverage.xml
-          flags: unittests
+          token: ${{ secrets.CODECOV_TOKEN_BACKOFFICE }} # not required for public repos
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
