@@ -1,6 +1,6 @@
 import Router from 'express-promise-router'
 
-import { HealthController } from '../../../controllers/HealthController'
+import { HealthController } from '../../../app/controllers/HealthController'
 
 const healthController = new HealthController()
 
