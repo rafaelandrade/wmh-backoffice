@@ -1,0 +1,31 @@
+name: Main Workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  codecov:
+    name: Codecov Workflow
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+    
+      - name: Install dev dependencies
+        run: yarn install
+
+      - uses: docker-practice/actions-setup-docker@master
+
+      - name: Run the tests
+        run: yarn test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN_BACKOFFICE }}
+          file: ./coverage.xml
+          flags: unittests
