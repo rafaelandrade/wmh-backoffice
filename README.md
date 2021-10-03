@@ -4,4 +4,5 @@
 # Install Dependencies
 yarn install
 
-to execute run: yarn dev:server
+to execute just run:
+    yarn dev:server
