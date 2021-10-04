@@ -5,7 +5,8 @@ const { NODE_ENV } = process.env
 export interface IKeyProps {
     port?: string
     environment?: string,
-    sentryDSN?: string
+    sentryDSN?: string,
+    coralogixKey ?: string
 }
 
 let keys: IKeyProps = {}

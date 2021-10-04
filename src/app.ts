@@ -2,8 +2,10 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
+import httpContext from 'express-http-context'
 import { router } from './routes'
 import { initSentry } from './helpers'
+import { requestLogger } from './app/middleware'
 
 class App {
   public express: express.Application
@@ -15,11 +17,13 @@ class App {
     this.routes()
     this.security()
     this.setupSentry()
+    this.setupLogs()
   }
 
   private middlewares (): void {
     this.express.use(express.json())
     this.express.use(cors())
+    this.express.use(httpContext.middleware)
   }
 
   private security (): void {
@@ -36,6 +40,10 @@ class App {
 
     this.express.use(rateLimiter)
     this.express.use(helmet())
+  }
+
+  private setupLogs (): void {
+    this.express.use(requestLogger)
   }
 
   private routes (): void {

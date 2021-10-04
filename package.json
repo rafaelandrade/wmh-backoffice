@@ -42,11 +42,14 @@
     "@sentry/tracing": "6.13.2",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "codecov": "^3.8.3",
+    "coralogix-logger": "^1.1.28",
     "cors": "2.8.5",
     "express": "4.17.1",
+    "express-http-context": "^1.2.4",
     "express-promise-router": "4.1.0",
     "express-rate-limit": "5.4.0",
     "helmet": "4.6.0",
-    "mongoose": "6.0.8"
+    "mongoose": "6.0.8",
+    "uuidv4": "^6.2.12"
   }
 }
