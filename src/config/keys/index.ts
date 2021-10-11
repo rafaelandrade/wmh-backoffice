@@ -6,7 +6,8 @@ export interface IKeyProps {
     port?: string
     environment?: string,
     sentryDSN?: string,
-    coralogixKey ?: string
+    coralogixKey ?: string,
+    healthToken ?: string
 }
 
 let keys: IKeyProps = {}

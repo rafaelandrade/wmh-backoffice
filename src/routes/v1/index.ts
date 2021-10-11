@@ -7,7 +7,7 @@ const v1Router = Router()
 
 v1Router.use('/health', healthRouter)
 v1Router.get('/', (req, res) => {
-  logger.info({ arg: { message: 'SENDING REQUEST DO / ROUTE' } })
+  logger.info({ arg: { message: 'HELLO WORLD!' } })
   res.send('Hello World!')
 })
 
