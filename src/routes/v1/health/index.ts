@@ -8,7 +8,7 @@ const healthController = new HealthController()
 
 const router = Router()
 
-router.get('/', requireHealthToken, async (request: Request, response: Response, next: NextFunction) => {
+router.get('/', requireHealthToken, (request: Request, response: Response, next: NextFunction) => {
   return healthController.show(request, response, next)
 })
 
