@@ -52,6 +52,7 @@
     "express-rate-limit": "5.4.0",
     "helmet": "4.6.0",
     "mongoose": "6.0.8",
+    "supertest": "^6.1.6",
     "uuidv4": "^6.2.12"
   }
 }
