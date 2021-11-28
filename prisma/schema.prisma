@@ -1,0 +1,72 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ResidenceAddress {
+  id Int @id @default(autoincrement())
+  residence Residence []
+  street String
+  numberResidence Int?
+  district String
+  state String
+  country String
+  CEP String
+  complement String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model ResidenceValues {
+  id Int @id @default(autoincrement())
+  residence Residence @relation(fields: [ResidenceId], references: [id])
+  ResidenceId Int
+  price Float
+  condominiumTax Float
+  houseTax Float
+  fireInsurence Float?
+  serviceTax Float?
+  totalRentPrice Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model ResidenceFeatures {
+  id Int @id @default(autoincrement())
+  residence Residence @relation(fields: [ResidenceId], references: [id])
+  ResidenceId Int
+  key String?
+  value String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Residence {
+  id Int @id @default(autoincrement())
+  residenceCode Int @unique
+  source String
+  urlSource String
+  numberRooms Int
+  numberBathrooms Int
+  numberParkingSpace Int
+  typeBuilding TypeBuildEnum @default(apartment)
+  sizeResidence Int
+  residenceaddress ResidenceAddress @relation(fields: [ResidenceAddressId], references: [id])
+  ResidenceAddressId Int
+  residencefeatures ResidenceFeatures?
+  residencevalues ResidenceValues[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+enum TypeBuildEnum {
+  apartment
+  house
+  studio
+  kitnet
+}

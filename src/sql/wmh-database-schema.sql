@@ -5,8 +5,21 @@ CREATE TYPE "type_building_enum" AS ENUM (
   'kitnet'
 );
 
+CREATE TABLE "ResidenceAddress" (
+  "id" serial not null constraint residenceaddress_pk primary key,
+  "street" varchar,
+  "numberResidence" int,
+  "district" varchar,
+  "state" varchar,
+  "country" varchar,
+  "CEP" varchar,
+  "complement" varchar,
+  "createdAt" timestamp,
+  "updatedAt" timestamp
+);
+
 CREATE TABLE "Residence" (
-  "id" int PRIMARY KEY,
+  "id" serial not null constraint residence_pk primary key,
   "residenceCode" int,
   "source" varchar,
   "urlSource" varchar,
@@ -15,43 +28,32 @@ CREATE TABLE "Residence" (
   "numberParkingSpace" int,
   "typeBuilding" type_building_enum,
   "sizeResidence" int,
-  "ResidenceAddressId" int
+  "ResidenceAddressId" int not null constraint residence_residenceaddress_id_fk references "ResidenceAddress" ("id") on update cascade on delete cascade,
+  "createdAt" timestamp,
+  "updatedAt" timestamp
 );
 
 CREATE TABLE "ResidenceFeatures" (
-  "id" int PRIMARY KEY,
-  "ResidenceId" int,
+  "id" serial not null constraint residencefeatures_pk primary key,
+  "ResidenceId" int not null constraint residencefeatures_residence_id_fk references "Residence" ("id") on update cascade on delete cascade,
   "key" varchar,
-  "value" text
-);
-
-CREATE TABLE "ResidenceAddress" (
-  "id" int PRIMARY KEY,
-  "street" varchar,
-  "numberResidence" int,
-  "district" varchar,
-  "state" varchar,
-  "country" varchar,
-  "CEP" varchar,
-  "complement" varchar
+  "value" text,
+  "createdAt" timestamp,
+  "updatedAt" timestamp
 );
 
 CREATE TABLE "ResidenceValues" (
-  "id" int PRIMARY KEY,
-  "ResidenceId" int,
+  "id" serial not null constraint residencevalues_pk primary key,
+  "ResidenceId" int not null constraint residencevalues_residence_id_fk references "Residence" ("id") on update cascade on delete cascade,
   "price" float,
   "condominiumTax" float,
   "houseTax" float,
   "fireInsurence" float,
   "serviceTax" float,
-  "totalRentPrice" float
+  "totalRentPrice" float,
+  "createdAt" timestamp,
+  "updatedAt" timestamp
 );
-
-ALTER TABLE "Residence" ADD FOREIGN KEY ("ResidenceAddressId") REFERENCES "ResidenceAddress" ("id");
-
-ALTER TABLE "Residence" ADD FOREIGN KEY ("id") REFERENCES "ResidenceFeatures" ("ResidenceId");
-
-ALTER TABLE "Residence" ADD FOREIGN KEY ("id") REFERENCES "ResidenceValues" ("ResidenceId");
 
 COMMENT ON COLUMN "Residence"."residenceCode" IS 'Case has is the code of the residence in the specific source';
 
