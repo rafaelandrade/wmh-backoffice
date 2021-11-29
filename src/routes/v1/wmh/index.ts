@@ -7,7 +7,7 @@ const router = Router()
 const getData = new GetData()
 const updateOrCreate = new UpdateOrCreateData()
 
-router.get('/get-data', requireAdminToken, (request: Request, response: Response, next: NextFunction) => {
+router.post('/get-data', (request: Request, response: Response, next: NextFunction) => {
   return getData.getData(request, response, next)
 })
 

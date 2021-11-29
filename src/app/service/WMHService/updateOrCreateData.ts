@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-const updateOrCreateData = async (request: Request): Promise<any> => {
+const updateOrCreateData = async (request: Request): Promise<Array<string>> => {
   const { dataWMH } = request.body
 
   // const { residenceCode, source, urlSource, numberRooms, numberBathrooms, numberParkingSpace, typeBuilding, sizeResidence, ResidenceAddressId } = dataWMH
