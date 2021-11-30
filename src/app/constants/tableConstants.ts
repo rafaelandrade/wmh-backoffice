@@ -1,7 +1,8 @@
 const tableNamesConstant = [
   'residence',
   'residenceAddress',
-  'residenceValues'
+  'residenceValues',
+  'residenceFeatures'
 ]
 
 export { tableNamesConstant }

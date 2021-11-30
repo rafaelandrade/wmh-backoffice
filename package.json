@@ -40,7 +40,7 @@
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.14.5",
     "@prisma/client": "^3.4.2",
-    "@sentry/node": "6.13.2",
+    "@sentry/node": "^6.15.0",
     "@sentry/tracing": "6.13.2",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "codecov": "^3.8.3",
