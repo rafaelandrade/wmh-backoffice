@@ -14,8 +14,8 @@ export class UpdateData {
           status: 401
         })
       }
-      logger.info({ arg: { message: `Going to update table ${tableName} with follow data ${data}` } })
-      return prisma[tableName]?.update({ where, data })
+      logger.info({ arg: { message: `Going to update table ${tableName} with follow data ${JSON.stringify(data, undefined, 2)}` } })
+      return prisma[`${tableName}`]?.update({ where, data })
     } catch (error: any) {
       return errorHandler({ error: { name: error?.name, message: error?.message, status: error?.status } })
     }

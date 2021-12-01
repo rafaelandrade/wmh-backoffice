@@ -4,7 +4,7 @@ import { keys } from '../../../config/keys'
 import { setContext, logger } from '../../../helpers'
 
 const requestLogger = (request: Request, response: Response, next: NextFunction): void => {
-  const requestId = request.headers['x-request-id'] || uuid()
+  const requestId = request.headers['x-request-id'] || uuid().replace(/-/g, '')
   setContext({
     key: 'requestId',
     value:
@@ -15,7 +15,6 @@ const requestLogger = (request: Request, response: Response, next: NextFunction)
   logger.info({ arg: { message: `Request starting with id: ${requestId} in environment ${keys.environment}` } })
   logger.info({ arg: { message: `[method] ${request.method}` } })
   logger.info({ arg: { message: `[endpoint] ${request.path}` } })
-  logger.info({ arg: { message: `[body] ${logger.beautify(request.body)}` } })
   return next()
 }
 

@@ -10,7 +10,7 @@ import {
 declare global {
   /* ~ Here contains a Interface of prisma schema of each table
    */
-  export interface IUpdateObject {
+  export interface IUpdateObject extends ResidenceAddress, Residence, ResidenceFeatures, ResidenceValues {
     where: ResidenceAddress | Residence | ResidenceFeatures | ResidenceValues;
     data: ResidenceAddress | Residence | ResidenceFeatures | ResidenceValues;
   }

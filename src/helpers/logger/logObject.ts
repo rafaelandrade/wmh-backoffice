@@ -25,10 +25,9 @@ const buildLogObject = ({
             message: arg.message,
             ...(arg.body ? { body: arg.body } : {}),
             ...(arg.validations ? { validations: arg.validations } : {}),
-            stack: arg.stack,
-            x_request_id: requestId
+            stack: arg.stack
           }
-        : { message: arg.message, x_request_id: requestId })
+        : { message: arg.message })
     }
   }
 }

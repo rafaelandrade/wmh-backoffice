@@ -6,7 +6,7 @@ class GetData {
     try {
       const { tableName, skipNumber, numberTake } = request.body
       const data = await getDataService(tableName, numberTake, skipNumber)
-      return response.status(200).json({ Error: false, Data: data })
+      return response.status(200).json({ error: false, data: data })
     } catch (error) {
       next(error)
     }

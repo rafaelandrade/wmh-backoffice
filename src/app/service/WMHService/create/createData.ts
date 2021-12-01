@@ -15,8 +15,8 @@ export class CreateData {
           status: 401
         })
       }
-      logger.info({ arg: { message: `Going to create data for table ${tableName}. With follow data ${data}...` } })
-      return prisma[tableName]?.create({ data })
+      logger.info({ arg: { message: `Going to create data for table ${tableName}. With follow data ${JSON.stringify(data, undefined, 2)}` } })
+      return prisma[`${tableName}`].create({ data })
     } catch (error: any) {
       return errorHandler({ error: { name: error?.name, message: error?.message, status: error?.status } })
     }
