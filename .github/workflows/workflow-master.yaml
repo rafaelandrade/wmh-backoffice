@@ -21,7 +21,7 @@ jobs:
       - uses: docker-practice/actions-setup-docker@master
 
       - name: Run the tests
-        run: yarn test:coverage
+        run: yarn run test:ci
 
       - uses: codecov/codecov-action@v2
         with:

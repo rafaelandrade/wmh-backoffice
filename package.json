@@ -9,7 +9,8 @@
     "dev:server": "ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "NODE_ENV=test jest --coverage --silent --forceExit --detectOpenHandles",
     "test:unit": "yarn test -- --watch -c jest-unit-config.js",
-    "test:coverage": "NODE_ENV=test ./node_modules/.bin/jest --coverage --silent --ci --forceExit --detectOpenHandles"
+    "test:coverage": "NODE_ENV=test ./node_modules/.bin/jest --coverage --silent --ci --forceExit --detectOpenHandles",
+    "test:ci": "NODE_ENV=test cd __tests__ && ./tests-run.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -54,6 +55,7 @@
     "express-promise-router": "4.1.0",
     "express-rate-limit": "5.4.0",
     "helmet": "4.6.0",
+    "jest-mock-extended": "^2.0.4",
     "mongoose": "6.0.8",
     "supertest": "^6.1.6",
     "uuidv4": "^6.2.12"
