@@ -1,6 +1,7 @@
-import { prismaMock } from '../../../../singleton'
+import { PrismaClient } from '@prisma/client'
 import { CreateData } from '../../../../src/app/service/WMHService'
 
+const prisma = new PrismaClient()
 
 describe("[CreateData] tests case", () => {
     it("Should create a new residenceAddress", async () => {
@@ -14,7 +15,7 @@ describe("[CreateData] tests case", () => {
             complement: 'Next at potatolandia'
         }
         
-        prismaMock.residenceAddress.create = jest.fn().mockResolvedValue(residenceAddress)
+        prisma.residenceAddress.create = jest.fn().mockResolvedValue(residenceAddress)
         const createData = new CreateData()
         const response = await createData.create(residenceAddress, 'residenceAddress')
 
