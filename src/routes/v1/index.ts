@@ -1,17 +1,17 @@
-import Router from 'express-promise-router'
+import Router from "express-promise-router";
 
-import { healthRouter } from './health'
-import { wmhRouter } from './wmh'
-import { logger } from '../../helpers/logger'
+import { healthRouter } from "./health";
+import { wmhRouter } from "./wmh";
+import { logger } from "../../helpers/logger";
 
-const v1Router = Router()
+const v1Router = Router();
 
-v1Router.use('/health', healthRouter)
-v1Router.use('/wmh', wmhRouter)
+v1Router.use("/health", healthRouter);
+v1Router.use("/wmh", wmhRouter);
 
-v1Router.get('/', (req, res) => {
-  logger.info({ arg: { message: 'HELLO WORLD!' } })
-  res.send('Hello World!')
-})
+v1Router.get("/", (req, res) => {
+  logger.info({ arg: { message: "HELLO WORLD!" } });
+  res.send("Hello World!");
+});
 
-export { v1Router }
+export { v1Router };

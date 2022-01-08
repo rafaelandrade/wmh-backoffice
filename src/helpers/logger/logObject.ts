@@ -1,20 +1,20 @@
-import { ILoggerParams } from './'
+import { ILoggerParams } from "./";
 
 interface IBuildLogObjectParams extends ILoggerParams {
-  isError: boolean
-  requestId: string
+  isError: boolean;
+  requestId: string;
 }
 
 export interface IBuildLogObjectResponse {
   // eslint-disable-next-line camelcase
-  x_request_id: string
-  context: Record<string, unknown>
+  x_request_id: string;
+  context: Record<string, unknown>;
 }
 
 const buildLogObject = ({
   arg,
   isError,
-  requestId
+  requestId,
 }: IBuildLogObjectParams): IBuildLogObjectResponse => {
   return {
     x_request_id: requestId,
@@ -25,11 +25,11 @@ const buildLogObject = ({
             message: arg.message,
             ...(arg.body ? { body: arg.body } : {}),
             ...(arg.validations ? { validations: arg.validations } : {}),
-            stack: arg.stack
+            stack: arg.stack,
           }
-        : { message: arg.message })
-    }
-  }
-}
+        : { message: arg.message }),
+    },
+  };
+};
 
-export { buildLogObject }
+export { buildLogObject };

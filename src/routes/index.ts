@@ -1,9 +1,9 @@
-import Router from 'express-promise-router'
+import Router from "express-promise-router";
 
-import { v1Router } from './v1'
+import { v1Router } from "./v1";
 
-const router = Router()
+const router = Router();
 
-router.use('/v1', v1Router)
+router.use("/v1", v1Router);
 
-export { router }
+export { router };

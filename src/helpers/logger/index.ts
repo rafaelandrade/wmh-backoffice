@@ -1,15 +1,15 @@
-import { Severity } from 'coralogix-logger'
+import { Severity } from "coralogix-logger";
 
-import { consoleLogger } from './consoleLogger'
+import { consoleLogger } from "./consoleLogger";
 
 export interface ILoggerParams {
   arg: {
-    name?: string
-    message: string
-    stack?: string
-    body?: Record<string, unknown>
-    validations?: Record<string, unknown>
-  }
+    name?: string;
+    message: string;
+    stack?: string;
+    body?: Record<string, unknown>;
+    validations?: Record<string, unknown>;
+  };
 }
 
 export const logger = {
@@ -19,5 +19,6 @@ export const logger = {
     consoleLogger({ severity: Severity.error, arg }),
   info: ({ arg }: ILoggerParams): void =>
     consoleLogger({ severity: Severity.info, arg }),
-  beautify: ({ arg }: ILoggerParams): string => JSON.stringify(arg, undefined, 2)
-}
+  beautify: ({ arg }: ILoggerParams): string =>
+    JSON.stringify(arg, undefined, 2),
+};

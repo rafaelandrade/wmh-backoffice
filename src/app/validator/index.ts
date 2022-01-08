@@ -1,1 +1,1 @@
-export * from './WMH'
+export * from "./WMH";

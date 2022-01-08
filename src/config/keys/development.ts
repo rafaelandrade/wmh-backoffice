@@ -1,4 +1,4 @@
-import { IKeyProps } from './'
+import { IKeyProps } from "./";
 
 export const development = {
   port: process.env.PORT,
@@ -6,5 +6,5 @@ export const development = {
   sentryDSN: process.env.SENTRY_DSN,
   coralogixKey: process.env.CORALOGIX_KEY,
   healthToken: process.env.HEALTH_TOKEN,
-  adminToken: process.env.ADMIN_MICROSSERVICE_TOKEN
-} as IKeyProps
+  adminToken: process.env.ADMIN_MICROSSERVICE_TOKEN,
+} as IKeyProps;

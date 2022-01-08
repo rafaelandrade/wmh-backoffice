@@ -1,1 +1,1 @@
-export * from './updateOrCreate'
+export * from "./updateOrCreate";

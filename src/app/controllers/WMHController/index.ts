@@ -1,2 +1,2 @@
-export * from './getData'
-export * from './updateOrCreateData'
+export * from "./getData";
+export * from "./updateOrCreateData";

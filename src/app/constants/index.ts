@@ -1,2 +1,2 @@
-export * from './tableConstants'
-export * from './errorConstants'
+export * from "./tableConstants";
+export * from "./errorConstants";

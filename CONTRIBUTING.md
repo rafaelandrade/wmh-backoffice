@@ -45,12 +45,9 @@ The feature must be at least 80% tested, without not going to even go to create 
 After creating the pull request to featured get merged it is required 1 approval at least.
 Once is merged it also required the creation of a release explaining the new feature created.
 
-
 plicated, but has the manual on [documentation page]().
 
 The feature must be at least 80% tested, without not going to even go to create a pull request on GitHub.
 
 After creating the pull request to featured get merged it is required 1 approval at least.
 Once is merged it also required the creation of a release explaining the new feature created.
-
-

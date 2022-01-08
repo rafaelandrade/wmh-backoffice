@@ -1,8 +1,8 @@
 const tableNamesConstant = [
-  'residence',
-  'residenceAddress',
-  'residenceValues',
-  'residenceFeatures'
-]
+  "residence",
+  "residenceAddress",
+  "residenceValues",
+  "residenceFeatures",
+];
 
-export { tableNamesConstant }
+export { tableNamesConstant };

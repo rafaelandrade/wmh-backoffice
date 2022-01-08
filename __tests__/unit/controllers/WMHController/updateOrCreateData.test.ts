@@ -71,10 +71,10 @@ describe("[UpdateOrCreateData] test case", () => {
     };
 
     try {
-        await updateOrCreate.updateOrCreate(req, res, next);
+      await updateOrCreate.updateOrCreate(req, res, next);
     } catch (error) {
-        expect(error).toBeTruthy()
-        expect(error.status).toBe(401)
+      expect(error).toBeTruthy();
+      expect(error.status).toBe(401);
     }
   });
 });
