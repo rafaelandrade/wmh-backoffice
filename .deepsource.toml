@@ -9,9 +9,13 @@ test_patterns = [
 name = "javascript"
 enabled = true
 
-  [analyzers.meta]
-  dialect = "typescript"
-  environment = [
-    "nodejs",
-    "browser"
-  ]
+[analyzers.meta]
+dialect = "typescript"
+environment = [
+  "nodejs",
+  "browser"
+]
+
+[[transformers]]
+name = "prettier"
+enabled = true

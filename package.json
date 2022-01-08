@@ -9,7 +9,8 @@
     "dev:server": "ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "NODE_ENV=test jest --coverage --silent --forceExit --detectOpenHandles",
     "test:unit": "yarn test -- --watch -c jest-unit-config.js",
-    "test:coverage": "NODE_ENV=test ./node_modules/.bin/jest --coverage --silent --ci --forceExit --detectOpenHandles"
+    "test:coverage": "NODE_ENV=test ./node_modules/.bin/jest --coverage --silent --ci --forceExit --detectOpenHandles",
+    "test:ci": "NODE_ENV=test cd __tests__ && ./tests-run.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -33,17 +34,20 @@
     "jest": "^27.2.4",
     "pretier": "^0.0.1",
     "prettier": "^2.4.1",
+    "prisma": "^3.4.0",
     "ts-node-dev": "1.1.8",
     "typescript": "4.4.3"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.14.5",
-    "@sentry/node": "6.13.2",
+    "@prisma/client": "^3.4.2",
+    "@sentry/node": "^6.15.0",
     "@sentry/tracing": "6.13.2",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "codecov": "^3.8.3",
     "coralogix-logger": "^1.1.28",
     "cors": "2.8.5",
+    "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",
     "errors-stack": "^1.0.11",
     "express": "4.17.1",
@@ -51,6 +55,7 @@
     "express-promise-router": "4.1.0",
     "express-rate-limit": "5.4.0",
     "helmet": "4.6.0",
+    "jest-mock-extended": "^2.0.4",
     "mongoose": "6.0.8",
     "supertest": "^6.1.6",
     "uuidv4": "^6.2.12"

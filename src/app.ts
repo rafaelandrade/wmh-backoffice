@@ -15,10 +15,10 @@ class App {
     this.express = express()
 
     this.middlewares()
+    this.setupLogs()
     this.routes()
     this.security()
     this.setupSentry()
-    this.setupLogs()
   }
 
   private middlewares (): void {
