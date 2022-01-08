@@ -63,10 +63,33 @@ yarn dev:server
 
 ---
 
-## 🧚 Executing Tests
+<h2> 🧚 Executing Tests </h2>
 
 To execute the test is simple, have the options:
 
 - Run `yarn run test` for test with coverage
 - Run `yarn run test:unit` for run test created or changed
 - Run `yarn run test:ci` going to execute the test equal in GitHub actions
+
+---
+
+<h2> 🍕 Project assistance - Buy me a coffe </h2>
+
+If you want to say thank you or/and support active development of WMH.
+
+- Add a GitHub 🌟 to the project.
+- Tweet and comment about project.
+- Give was a coffee, if you like too.
+
+<a href="https://www.buymeacoffee.com/rafaelasndrade" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A pizza" style="height: auto !important;width: auto !important;" ></a>
+
+
+---
+<h2> Contributing </h2>
+
+Would you like to contribute to this project? [CONTRIBUTING.md](CONTRIBUTING.md) has all the details on how to do that.
+
+---
+<h2> ⚠️ License </h2>
+
+WMH-Scraper is licensed under the terms of the GPL Open Source license and is available for free.
