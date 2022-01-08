@@ -92,4 +92,4 @@ Would you like to contribute to this project? [CONTRIBUTING.md](CONTRIBUTING.md)
 ---
 <h2> ⚠️ License </h2>
 
-WMH-Scraper is licensed under the terms of the GPL Open Source license and is available for free.
+WMH-Backoffice is licensed under the terms of the GPL Open Source license and is available for free.
