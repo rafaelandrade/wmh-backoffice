@@ -17,4 +17,4 @@ services:
       # copy the sql script to create tables
       - ./src/sql/wmh-database-schema.sql:/docker-entrypoint-initdb.d/wmh-database-schema.sql
       # copy the sql script to fill tables
-      # - ./sql/fill_tables.sql:/docker-entrypoint-initdb.d/fill_tables.sql
+      # - ./src/sql/residence.sql:/docker-entrypoint-initdb.d/residence.sql

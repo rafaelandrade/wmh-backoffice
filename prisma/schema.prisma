@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,62 +8,62 @@ datasource db {
 }
 
 model ResidenceAddress {
-  id Int @id @default(autoincrement())
-  residence Residence []
-  street String
+  id              Int         @id(map: "residenceaddress_pk") @default(autoincrement())
+  street          String?     @db.VarChar
   numberResidence Int?
-  district String
-  state String
-  country String
-  CEP String
-  complement String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  district        String?     @db.VarChar
+  state           String?     @db.VarChar
+  country         String?     @db.VarChar
+  CEP             String?     @db.VarChar
+  complement      String?     @db.VarChar
+  createdAt       DateTime?   @db.Timestamp(6)
+  updatedAt       DateTime?   @db.Timestamp(6)
+  residence       Residence[]
 }
 
 model ResidenceValues {
-  id Int @id @default(autoincrement())
-  residence Residence @relation(fields: [ResidenceId], references: [id])
-  ResidenceId Int
-  price Float
-  condominiumTax Float
-  houseTax Float
-  fireInsurence Float?
-  serviceTax Float?
-  totalRentPrice Float
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  id             Int       @id(map: "residencevalues_pk") @default(autoincrement())
+  ResidenceId    Int
+  price          Float?
+  condominiumTax Float?
+  houseTax       Float?
+  fireInsurence  Float?
+  serviceTax     Float?
+  totalRentPrice Float?
+  createdAt      DateTime? @db.Timestamp(6)
+  updatedAt      DateTime? @db.Timestamp(6)
+  residence      Residence @relation(fields: [ResidenceId], references: [id], onDelete: Cascade, map: "residencevalues_residence_id_fk")
 }
 
 model ResidenceFeatures {
-  id Int @id @default(autoincrement())
-  residence Residence @relation(fields: [ResidenceId], references: [id])
+  id          Int       @id(map: "residencefeatures_pk") @default(autoincrement())
   ResidenceId Int
-  key String?
-  value String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  key         String?   @db.VarChar
+  value       String?
+  createdAt   DateTime? @db.Timestamp(6)
+  updatedAt   DateTime? @db.Timestamp(6)
+  residence   Residence @relation(fields: [ResidenceId], references: [id], onDelete: Cascade, map: "residencefeatures_residence_id_fk")
 }
 
 model Residence {
-  id Int @id @default(autoincrement())
-  residenceCode Int @unique
-  source String
-  urlSource String
-  numberRooms Int
-  numberBathrooms Int
-  numberParkingSpace Int
-  typeBuilding TypeBuildEnum @default(apartment)
-  sizeResidence Int
-  residenceaddress ResidenceAddress @relation(fields: [ResidenceAddressId], references: [id])
+  id                 Int                 @id(map: "residence_pk") @default(autoincrement())
+  residenceCode      Int?
+  source             String?             @db.VarChar
+  urlSource          String?             @db.VarChar
+  numberRooms        Int?
+  numberBathrooms    Int?
+  numberParkingSpace Int?
+  typeBuilding       type_building_enum?
+  sizeResidence      Int?
   ResidenceAddressId Int
-  residencefeatures ResidenceFeatures?
-  residencevalues ResidenceValues[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  createdAt          DateTime?           @db.Timestamp(6)
+  updatedAt          DateTime?           @db.Timestamp(6)
+  residenceaddress   ResidenceAddress    @relation(fields: [ResidenceAddressId], references: [id], onDelete: Cascade, map: "residence_residenceaddress_id_fk")
+  residencefeatures  ResidenceFeatures[]
+  residencevalues    ResidenceValues[]
 }
 
-enum TypeBuildEnum {
+enum type_building_enum {
   apartment
   house
   studio

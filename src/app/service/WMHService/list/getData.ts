@@ -11,7 +11,7 @@ const getDataService = async (
   numberTake = 20,
   skipNumber = 0,
   where?: IUpdateObject
-): Promise<Array<string> | Response | string > => {
+): Promise<any | Response | string > => {
   try {
     if (!tableNamesConstant.includes(`${tableName}`)) {
       throw new UnauthorizedError({
@@ -19,7 +19,7 @@ const getDataService = async (
         status: 401
       })
     }
-    return prisma[tableName]?.findMany(where ? { where } : {}, { take: numberTake, skip: skipNumber })
+    return prisma[tableName]?.findMany(where ? { where } : { take: numberTake, skip: skipNumber })
   } catch (error: any) {
     return errorHandler({ error: { name: error?.name, message: error?.message, status: error?.status } })
   }

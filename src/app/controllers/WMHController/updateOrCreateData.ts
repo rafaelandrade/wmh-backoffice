@@ -14,14 +14,12 @@ class UpdateOrCreateData {
       const create = new CreateData()
       const update = new UpdateData()
 
-      return response
-        .status(200)
-        .json({
-          error: false,
-          data: (await wmhUpdateOrCreateValidator.validate(request))
-            ? await update.update(where, data, tableName)
-            : await create.create(data, tableName)
-        })
+      return response.status(200).json({
+        error: false,
+        data: await wmhUpdateOrCreateValidator.validate(request)
+          ? await update.update(where, data, tableName)
+          : await create.create(data, tableName)
+      })
     } catch (error) {
       next(error)
     }
