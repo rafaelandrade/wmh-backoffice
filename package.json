@@ -59,6 +59,8 @@
     "mongoose": "6.0.8",
     "supertest": "^6.1.6",
     "uuidv4": "^6.2.12",
-    "ts-node-dev": "1.1.8"
+    "ts-node-dev": "1.1.8",
+    "prisma": "^3.4.0",
+    "typescript": "4.4.3"
   }
 }
