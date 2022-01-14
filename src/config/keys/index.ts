@@ -1,4 +1,5 @@
 import { development } from './development'
+import { production } from './production'
 
 const { NODE_ENV } = process.env
 
@@ -21,6 +22,7 @@ switch (NODE_ENV) {
     keys = development
     break
   case 'production':
+    keys = production
     break
   default:
     keys = development

@@ -11,7 +11,7 @@ v1Router.use('/wmh', wmhRouter)
 
 v1Router.get('/', (req, res) => {
   logger.info({ arg: { message: 'HELLO WORLD!' } })
-  res.send('Hello World!')
+  res.send('Hello WMH-BACKOFFICE WORLD!!')
 })
 
 export { v1Router }
